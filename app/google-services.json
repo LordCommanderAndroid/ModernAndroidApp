@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "795453331946",
+    "firebase_url": "https://modernapparch.firebaseio.com",
+    "project_id": "modernapparch",
+    "storage_bucket": "modernapparch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795453331946:android:fe477e01dcc1981e",
+        "android_client_info": {
+          "package_name": "com.hacker.modernapparch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795453331946-a120sg6b3vfr04onva5se9licvak3g62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hacker.modernapparch",
+            "certificate_hash": "4312dd7fb89fd5b433b3b116fd92dcacd332d8e9"
+          }
+        },
+        {
+          "client_id": "795453331946-3et65gom6ol4moid58e59j6tm574c6ud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-Xm_B7QJxAOom39y2QQJf6C9yxUeEjsc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795453331946-3et65gom6ol4moid58e59j6tm574c6ud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
