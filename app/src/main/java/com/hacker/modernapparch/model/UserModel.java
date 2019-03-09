@@ -7,6 +7,11 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.hacker.modernapparch.R;
+import com.squareup.picasso.Picasso;
+
+import androidx.databinding.BindingAdapter;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserModel implements Parcelable
 {
@@ -39,6 +44,7 @@ public class UserModel implements Parcelable
         this.info = ((Info) in.readValue((Info.class.getClassLoader())));
     }
 
+
     public UserModel() {
     }
 
@@ -56,6 +62,12 @@ public class UserModel implements Parcelable
 
     public void setInfo(Info info) {
         this.info = info;
+    }
+
+    @BindingAdapter({"bind:imageUrl"})
+    public static void loadImage(CircleImageView view, String imageUrl) {
+       Picasso.get().load(imageUrl).into(view);
+
     }
 
     public void writeToParcel(Parcel dest, int flags) {

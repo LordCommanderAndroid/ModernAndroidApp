@@ -3,4 +3,29 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary2">#FF335165</color>
+    <color name="colorPrimaryDark2">#314d62</color>
+    <color name="white">#fff</color>
+    <color name="light_grey">#cccaca</color>
+    <color name="black">#000</color>
+    <color name="scanner_line">#00ceff</color>
+    <color name="background_color">#009688</color>
+    <color name="white_greyish">#EEEEEE</color>
+    <color name="button_selectorcolor">#9E9E9E</color>
+
+    <color name="primary">#E43F3F</color>
+    <color name="primary_dark">#E12929</color>
+    <color name="primary_darker">#CC1D1D</color>
+    <color name="accent">#FFFFFF</color>
+
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="blue">#4c70ac</color>
+    <color name="button_red">#FF0000</color>
+
 </resources>
