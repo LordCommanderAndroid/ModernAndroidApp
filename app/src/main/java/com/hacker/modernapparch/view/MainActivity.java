@@ -3,6 +3,9 @@ package com.hacker.modernapparch.view;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +23,7 @@ import com.hacker.modernapparch.repository.CloudRepository;
 import com.hacker.modernapparch.repository.UserRepository;
 import com.hacker.modernapparch.repository.apiinterface.CloudCRUDListener;
 import com.hacker.modernapparch.repository.apiinterface.getUserListener;
+import com.hacker.modernapparch.viewmodel.MainActivityViewModel;
 
 import java.util.List;
 
@@ -29,11 +33,15 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private Result result;
 
+    MainActivityViewModel mainActivityViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+
         getAndBindData();
+
         initListeners();
 
     }
@@ -47,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 // your swipe left here.
                 Toast.makeText(MainActivity.this, "Swipe Left", Toast.LENGTH_SHORT).show();
                 SlideAnimationUtil.slideOutToLeft(MainActivity.this,binding.activityProfile);
-                getAndBindData();
+                mainActivityViewModel.getAndBindData();
             }
 
         });
@@ -55,26 +63,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getAndBindData() {
-        UserRepository userRepository = new UserRepository();
-
-        DisplayUtils.showProgressDialog(this);
-
-        userRepository.getUser(new getUserListener() {
-            @Override
-            public void onUserRetrived(UserModel userModel) {
-                List<Result> results = userModel.getResults();
-                result = results.get(0);
-                binding.setUser(result); // 8 textviews setText-ed in a single line
-
-                DisplayUtils.dismissProgress();
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                DisplayUtils.showAlert(MainActivity.this,"Error",t.getMessage());
-            }
-        });
+    mainActivityViewModel.getResultMutableLiveData().observe(this, new Observer<Result>() {
+        @Override
+        public void onChanged(Result result) {
+            binding.setUser(result);
+        }
+    });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         }
         case R.id.reset:
             //add the function to perform here
-            getAndBindData();
+            mainActivityViewModel.getAndBindData();
             return(true);
         case R.id.about:
             //add the function to perform here
